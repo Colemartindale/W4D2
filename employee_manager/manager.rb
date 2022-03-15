@@ -9,6 +9,10 @@ class Manager < Employee
         @employees = []
     end
 
+    def add_employee(employee)
+        employees << employee
+    end
+
     def bonus(multiplier)
         @bonus = bonus_base * multiplier
     end
@@ -18,7 +22,7 @@ class Manager < Employee
         q = self.employees.dup
         until q.empty?
             current_man = q.shift
-            if current_man.employees.nil?
+            if current_man.employees.empty?
                 base += current_man.salary
             else
                 base += current_man.salary
