@@ -13,6 +13,4 @@ class Employee
         @bonus = self.salary * multiplier
     end
 
-    
-
 end
