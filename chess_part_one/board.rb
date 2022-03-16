@@ -61,6 +61,18 @@ class Board
         true
     end
 
+    def populate_board
+        back_line = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
+
+        back_line.each_with_index do |piece, i|
+            piece.new(:black, self, [0, i])
+            Pawn.new(:black, self, [1, i])
+            Pawn.new(:white, self, [6, i])
+            piece.new(:white, self, [7, i])
+        end
+    end
+
+
 
 
 end

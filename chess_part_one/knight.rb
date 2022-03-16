@@ -1,8 +1,10 @@
 require_relative 'piece'
-require_relative 'stepable'
 
-class KnightKing < Piece
+class Knight < Piece
 
+    DIFFS = [[1, -2], [2, -1], [2, 1], [1, 2], [-1, 2], [-2, 1], [-2, -1], [-1, -2]]
 
-
+    def symbol
+        symbol = :H
+    end
 end
