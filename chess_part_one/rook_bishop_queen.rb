@@ -1,6 +1,6 @@
 require_relative 'modules'
 
-class NullPiece < Piece
+class RookBishopQueen < piece
 
 
 
