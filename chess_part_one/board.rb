@@ -96,6 +96,34 @@ class Board
 
     end
 
+    def in_check?(color)
+        bad_boys = []
+        self.rows.each do |row|
+            row.each do |piece|
+                if piece.color != color && !piece.empty?
+                    bad_boys << piece
+                end
+            end
+        end
+
+        bad_boys.moves.each do |moves|
+            if moves.include?(find_king)  
+               return true 
+            end
+        end
+        false
+    end
+
+    def find_king(color)
+        rows.each_with_index do |row, i|
+            row.each_with_index do |val, j|
+                if rows[i][j].instance_of?(King) && rows[i][j].color == color
+                    return [i, j] 
+                end
+            end
+        end
+    end
+
 
     # def render
     #     puts "--------"

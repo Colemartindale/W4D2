@@ -7,4 +7,8 @@ class Knight < Piece
     def symbol
         symbol = :H
     end
+
+    def move_diffs
+        DIFFS 
+    end
 end

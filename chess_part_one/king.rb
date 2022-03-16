@@ -9,4 +9,8 @@ class King < Piece
        symbol = :K
     end
 
+    def move_diffs
+        DIFFS
+    end
+
 end
