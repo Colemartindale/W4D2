@@ -14,7 +14,8 @@ module Slideable
         DIAGONAL_DIRS + HORIZONTAL_AND_VERTICAL_DIRS
     end
 
-    def grow_unblocked_moves_in_dir(dx, dy)
+    def grow_unblocked_moves_in_dir(dir)
+        dx, dy = dir
         result = []
         # end of board, must stop
         # our color, cannot take that space, must stop

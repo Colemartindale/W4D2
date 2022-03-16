@@ -47,5 +47,20 @@ class Board
         p rows
     end
 
+    def valid_move?(end_pos, color)
+        
+        x, y = end_pos
+        if !(0..7).include?(x) || !(0..7).include?(y)
+            return false
+        end
+
+        if  @rows[end_pos].color == piece.color
+            return false
+        end
+
+        true
+    end
+
+
 
 end
