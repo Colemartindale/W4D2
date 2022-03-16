@@ -1,25 +1,42 @@
 require_relative "piece"
 require_relative "nullpiece"
+require_relative 'rook'
+require_relative 'knight'
+require_relative 'pawn'
+require_relative 'queen'
+require_relative 'king'
+require_relative 'bishop'
 class Board
     
-    attr_reader :nullpiece, :piece, :rows
+    attr_reader :nullpiece, :rows
     
     def initialize
         @rows = Array.new(8) { Array.new(8) }
         @nullpiece = NullPiece.new
-        @piece = Piece.new
-        self.fill_rows
+        self.populate_board
     end
 
     def fill_rows
+
         rows.map.with_index do |row, i|
             if i.between?(2, 5)
-                (0...row.length).each { |j| row[j] = nil } # change to nullpiece
-            else
-                (0...row.length).each { |k| row[k] = "p" } # change to piece
+                (0...row.length).each { |i| row[i] = NullPiece.new }
             end
         end 
-       rows     
+
+        # syms = []
+        # instances.each do |inst|
+        #     syms << inst.map {|el| el.symbol }
+        # end
+        #code above was to make sure our population was working
+        
+        instances = populate_board
+        @rows[0] = instances[0]
+        @rows[1] = instances[1]
+        @rows[6] = instances[2]
+        @rows[7] = instances[3]
+        #rows
+
     end
 
     def [](pos)
@@ -44,7 +61,7 @@ class Board
 
         self[end_pos] = self[start_pos]
         self[start_pos] = nil  #change to nullpiece
-        p rows
+        rows
     end
 
     def valid_move?(end_pos, color)
@@ -63,16 +80,40 @@ class Board
 
     def populate_board
         back_line = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
+        row_zero = []
+        row_one = []
+        row_six = []
+        row_seven = []
 
         back_line.each_with_index do |piece, i|
-            piece.new(:black, self, [0, i])
-            Pawn.new(:black, self, [1, i])
-            Pawn.new(:white, self, [6, i])
-            piece.new(:white, self, [7, i])
+            row_zero << piece.new(:black, self, [0, i]) 
+            row_one << Pawn.new(:black, self, [1, i])
+            row_six << Pawn.new(:white, self, [6, i])
+            row_seven << piece.new(:white, self, [7, i])
         end
+
+        instances = [row_zero, row_one, row_six, row_seven] 
+
     end
 
 
+    # def render
+    #     puts "--------"
+    #     @rows.each do |row|
+    #         puts row.map { |el| el.symbol }
+    #     end
+        
+    # end
 
+
+
+end
+
+
+while false
+    load 'board.rb'
+    b = Board.new
+    b.fill_rows
+    b.render
 
 end
