@@ -9,6 +9,7 @@ class Piece
     def valid_move?
         # opposing color
         # blocked by your own color
+        # end of board
 
     end
 
