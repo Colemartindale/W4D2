@@ -1,11 +1,3 @@
-module Stepable
-
-    
-
-
-end
-
-
 module Slideable
 
     HORIZONTAL_DIRS = [[0, 1], [1, 0], [0, -1], [-1, 0]]
@@ -23,10 +15,5 @@ module Slideable
     def grow_unblocked_moves_in_dir(dx, dy)
         
     end
-
-end
-
-module Singleton
-
 
 end

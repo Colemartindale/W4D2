@@ -1,4 +1,5 @@
-require_relative 'modules'
+require_relative 'piece'
+require_relative 'singleton'
 
 class NullPiece < Piece
 
