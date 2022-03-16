@@ -6,7 +6,9 @@ class Piece
         @pos = []        
     end
 
-    def 
+    def valid_move?
+        # opposing color
+        # blocked by your own color
 
     end
 
