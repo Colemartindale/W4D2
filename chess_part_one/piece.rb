@@ -1,6 +1,9 @@
 class Piece
 
-    def initialize
+    def initialize(color, board, pos)
+        @color = color #:black or :white
+        @board = board
+        @pos = []
         
     end
 
