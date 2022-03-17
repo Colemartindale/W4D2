@@ -1,5 +1,0 @@
-
-module Singleton
-
-
-end
