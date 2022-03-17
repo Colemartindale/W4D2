@@ -1,5 +1,5 @@
 require_relative 'piece'
-require_relative 'singleton'
+require 'singleton'
 
 class NullPiece < Piece
     include Singleton

@@ -11,18 +11,18 @@ class Board
     attr_reader :nullpiece, :rows
     
     def initialize
-        @rows = Array.new(8) { Array.new(8) }
-        @nullpiece = NullPiece.new
+        @rows = Array.new(8) { Array.new(8, NullPiece.instance) }
+        @nullpiece = nullpiece
         self.populate_board
     end
 
     def fill_rows
 
-        rows.map.with_index do |row, i|
-            if i.between?(2, 5)
-                (0...row.length).each { |i| row[i] = NullPiece.new }
-            end
-        end 
+        # rows.map.with_index do |row, i|
+        #     if i.between?(2, 5)
+        #         (0...row.length).each { |i| row[i] = NullPiece.new }
+        #     end
+        # end 
 
         # syms = []
         # instances.each do |inst|
@@ -107,7 +107,7 @@ class Board
         end
 
         bad_boys.moves.each do |moves|
-            if moves.include?(find_king)  
+            if moves.include?(find_king(color))  
                return true 
             end
         end
@@ -138,10 +138,7 @@ class Board
 end
 
 
-while false
-    load 'board.rb'
-    b = Board.new
-    b.fill_rows
-    b.render
+b = Board.new
+b.fill_rows
+p b
 
-end

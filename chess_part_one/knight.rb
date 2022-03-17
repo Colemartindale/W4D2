@@ -11,4 +11,8 @@ class Knight < Piece
     def move_diffs
         DIFFS 
     end
+
+    def to_s
+        symbol
+    end
 end

@@ -28,9 +28,6 @@ class Piece
         #check where the king is using find king method in board
         #move the we do doesnt leave us in check
         
-        
-
-
     end
 
 end

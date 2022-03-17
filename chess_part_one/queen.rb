@@ -8,4 +8,8 @@ include Slideable
         symbol = :Q
     end
 
+    def to_s
+        symbol
+    end
+
 end

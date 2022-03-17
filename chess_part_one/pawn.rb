@@ -76,6 +76,10 @@ class Pawn < Piece
         attacks
     end
 
+    def to_s
+        symbol
+    end
+
 
 end
 

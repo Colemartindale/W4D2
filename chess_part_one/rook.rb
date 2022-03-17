@@ -12,4 +12,9 @@ include Slideable
         HORIZONTAL_AND_VERTICAL_DIRS
     end
 
+    def to_s
+        symbol
+    end
+
+
 end
